@@ -14,7 +14,7 @@ export function StatisticsPanel({
   isRTL,
 }: StatisticsPanelProps) {
   return (
-    <div className="rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 p-6 text-white shadow-lg">
+    <div className="rounded-2xl bg-[#71144B] p-6 text-white shadow-lg">
       <h3
         className={`mb-6 border-b border-white/20 pb-4 text-xl font-bold ${
           isRTL ? "text-right" : "text-left"

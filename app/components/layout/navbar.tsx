@@ -21,17 +21,47 @@ export function Navar() {
   return (
     <nav id="header" className="w-full bg-main-color text-white shadow-lg">
       <div className="mx-auto flex items-center justify-between px-6 py-3">
-        {/* Left Side - يسار */}
         <div
           className={`flex items-center gap-4 ${
             isRTL ? "order-1" : "order-1"
           }`}
         >
           {isRTL ? (
-            // Arabic: Logo + Admin على اليسار
+            <button
+              onClick={toggleSidebar}
+              className="flex flex-row-reverse items-center gap-2 text-base font-semibold transition-all hover:opacity-80"
+            >
+              <span>{t.navbar.menu}</span>
+              <RiMenu3Fill />
+            </button>
+          ) : (
+            <button
+              onClick={toggleSidebar}
+              className="flex items-center gap-2 text-base font-semibold transition-all hover:opacity-80"
+            >
+              <span>{t.navbar.menu}</span>
+              <RiMenu3Fill />
+            </button>
+          )}
+        </div>
+
+        <div
+          className={`flex items-center gap-4 ${
+            isRTL ? "order-2 flex-row-reverse" : "order-2"
+          }`}
+        >
+          {isRTL ? (
             <>
+              <button
+                onClick={toggleLocale}
+                className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold transition-all hover:bg-white/20"
+                title="Switch to English"
+              >
+                <Languages size={18} />
+                <span>EN</span>
+              </button>
               <div className="text-lg font-semibold">{t.navbar.logo}</div>
-              <button className="flex flex-row-reverse items-center gap-2 text-base font-semibold">
+              <button className="flex items-center gap-2 text-base font-semibold">
                 <span>{t.navbar.admin}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -46,44 +76,6 @@ export function Navar() {
               </button>
             </>
           ) : (
-            // English: Menu على اليسار
-            <button
-              onClick={toggleSidebar}
-              className="flex items-center gap-2 text-base font-semibold transition-all hover:opacity-80"
-            >
-              <span>{t.navbar.menu}</span>
-              <RiMenu3Fill />
-            </button>
-          )}
-        </div>
-
-        {/* Right Side - يمين */}
-        <div
-          className={`flex items-center gap-4 ${
-            isRTL ? "order-2 flex-row-reverse" : "order-2"
-          }`}
-        >
-          {isRTL ? (
-            // Arabic: Language + Menu على اليمين
-            <>
-              <button
-                onClick={toggleLocale}
-                className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold transition-all hover:bg-white/20"
-                title="Switch to English"
-              >
-                <Languages size={18} />
-                <span>EN</span>
-              </button>
-              <button
-                onClick={toggleSidebar}
-                className="flex flex-row-reverse items-center gap-2 text-base font-semibold transition-all hover:opacity-80"
-              >
-                <span>{t.navbar.menu}</span>
-                <RiMenu3Fill />
-              </button>
-            </>
-          ) : (
-            // English: Language + Logo + Admin على اليمين
             <>
               <button
                 onClick={toggleLocale}

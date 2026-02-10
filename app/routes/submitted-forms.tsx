@@ -2,6 +2,7 @@ import { Sidebar } from "~/components/layout/sidebar";
 import { Navar } from "~/components/layout/navbar";
 import { FormCard, FormsFilters, type FormSubmission } from "~/components/submitted-forms";
 import { getLocale, getTranslations } from "~/lib/translation";
+import { useSidebar } from "~/lib/sidebar-context";
 import type { Route } from "./+types/submitted-forms";
 
 export function meta({}: Route.MetaArgs) {
@@ -164,16 +165,26 @@ export default function SubmittedForms() {
   const t = getTranslations(locale);
   const isRTL = locale === "ar";
 
+  const { isOpen } = useSidebar();
+
+  const sidebarOffsetClass = isRTL
+    ? isOpen
+      ? "md:mr-64"
+      : "md:mr-0"
+    : isOpen
+      ? "md:ml-64"
+      : "md:ml-0";
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navar />
 
-      <div className="flex">
-        <Sidebar />
+      <Sidebar />
 
-        <main className="flex-1 p-6">
+      <main
+        className={`p-6 transition-all duration-300 ${sidebarOffsetClass}`}
+      >
           <div className="mx-auto max-w-7xl">
-            {/* Page Title */}
             <h1
               className={`mb-6 text-2xl font-bold text-gray-800 ${
                 isRTL ? "text-right" : "text-left"
@@ -182,14 +193,11 @@ export default function SubmittedForms() {
               {t.submittedForms.pageTitle}
             </h1>
 
-            {/* Filters */}
             <FormsFilters
               searchPlaceholder={t.submittedForms.search}
               motorStatusLabel={t.submittedForms.motorStatus}
               isRTL={isRTL}
             />
-
-            {/* Forms Grid */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {dummyForms.map((form) => (
                 <FormCard key={form.id} form={form} isRTL={isRTL} />
@@ -197,7 +205,6 @@ export default function SubmittedForms() {
             </div>
           </div>
         </main>
-      </div>
     </div>
   );
 }

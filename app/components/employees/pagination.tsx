@@ -19,7 +19,7 @@ export function Pagination({
           onClick={() => onPageChange?.(page)}
           className={`h-10 w-10 rounded-full text-sm font-semibold transition-all ${
             page === currentPage
-              ? "bg-purple-500 text-white shadow-lg"
+              ? "bg-[#71144B] text-white shadow-lg"
               : "bg-gray-100 text-gray-600 hover:bg-gray-200"
           }`}
         >

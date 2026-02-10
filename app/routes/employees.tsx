@@ -7,6 +7,7 @@ import {
   type Employee,
 } from "~/components/employees";
 import { getLocale, getTranslations } from "~/lib/translation";
+import { useSidebar } from "~/lib/sidebar-context";
 import type { Route } from "./+types/employees";
 
 export function meta({}: Route.MetaArgs) {
@@ -16,7 +17,6 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-// Dummy Data
 const dummyEmployees: Employee[] = [
   {
     id: "1",
@@ -133,35 +133,44 @@ export default function Employees() {
   const t = getTranslations(locale);
   const isRTL = locale === "ar";
 
+  const { isOpen } = useSidebar();
+
+  const sidebarOffsetClass = isRTL
+    ? isOpen
+      ? "md:mr-64"
+      : "md:mr-0"
+    : isOpen
+      ? "md:ml-64"
+      : "md:ml-0";
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navar />
 
-      <div className="flex">
-        <Sidebar />
+      <Sidebar />
 
-        <main className="flex-1 p-6">
+      <main
+        className={`p-6 transition-all duration-300 ${sidebarOffsetClass}`}
+      >
           <div className="mx-auto max-w-7xl">
-            {/* Page Header */}
             <div
               className={`mb-6 flex items-center justify-between ${
                 isRTL ? "flex-row-reverse" : ""
               }`}
             >
-              <h1 className="text-2xl font-bold text-gray-800">
-                {t.employees.pageTitle} ({dummyEmployees.length})
-              </h1>
+           
             </div>
 
-            {/* Filters */}
             <EmployeesFilters
               searchPlaceholder={t.employees.search}
               statusLabel={t.employees.accountStatus}
               isRTL={isRTL}
             />
 
-            {/* Table Container */}
             <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
+            <h1 className="text-3xl font-bold text-gray-800">
+                {t.employees.pageTitle} ({dummyEmployees.length})
+              </h1>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-gray-50">
@@ -205,10 +214,10 @@ export default function Employees() {
                         {t.employees.table.email}
                       </th>
                       <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">
-                        {t.employees.table.accountStatus}
+                        {t.employees.table.operations}
                       </th>
                       <th className="px-4 py-4 text-center text-sm font-semibold text-gray-600">
-                        {t.employees.table.operations}
+                        {t.employees.table.accountStatus}
                       </th>
                     </tr>
                   </thead>
@@ -226,12 +235,10 @@ export default function Employees() {
                 </table>
               </div>
 
-              {/* Pagination */}
               <Pagination currentPage={1} totalPages={3} />
             </div>
           </div>
         </main>
-      </div>
     </div>
   );
 }

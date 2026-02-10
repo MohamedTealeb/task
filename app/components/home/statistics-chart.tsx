@@ -1,3 +1,14 @@
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+
 interface ChartLegendItem {
   label: string;
   color: string;
@@ -10,14 +21,25 @@ interface StatisticsChartProps {
 }
 
 const chartData = [
-  { height: "50%", color: "bg-teal-400" },
-  { height: "25%", color: "bg-yellow-400" },
-  { height: "30%", color: "bg-blue-400" },
-  { height: "10%", color: "bg-pink-500" },
-  { height: "50%", color: "bg-blue-500" },
-  { height: "25%", color: "bg-orange-400" },
-  { height: "30%", color: "bg-fuchsia-500" },
-  { height: "10%", color: "bg-cyan-400" },
+  { name: "1", value: 42 },
+  { name: "2", value: 21 },
+  { name: "3", value: 28 },
+  { name: "4", value: 9 },
+  { name: "5", value: 42 },
+  { name: "6", value: 21 },
+  { name: "7", value: 27 },
+  { name: "8", value: 10 },
+];
+
+const barColors = [
+  "#2dd4bf", 
+  "#facc15", 
+  "#60a5fa", 
+  "#ec4899", 
+  "#3b82f6", 
+  "#fb923c", 
+  "#d946ef", 
+  "#22d3ee", 
 ];
 
 export function StatisticsChart({
@@ -26,7 +48,7 @@ export function StatisticsChart({
   isRTL,
 }: StatisticsChartProps) {
   return (
-    <div className="rounded-2xl bg-white p-6 shadow-sm">
+    <div className="rounded-[32px] bg-white p-6 md:p-8 shadow-[0_12px_30px_rgba(15,23,42,0.08)]">
       <h2
         className={`mb-6 text-lg font-bold text-gray-800 ${
           isRTL ? "text-right" : "text-left"
@@ -35,28 +57,41 @@ export function StatisticsChart({
         {title}
       </h2>
 
-      <div className="flex gap-8">
-        <div className="flex flex-1 items-end gap-4 border-b-2 border-l-2 border-gray-300 pb-4 pl-4">
-      
-          <div className="flex flex-col justify-between text-xs text-gray-500">
-            <span>100 %</span>
-            <span>90 %</span>
-            <span>40 %</span>
-            <span>30 %</span>
-            <span>20 %</span>
-            <span>10 %</span>
-            <span>0 %</span>
-          </div>
-
-      
-          <div className="flex flex-1 items-end justify-around gap-2">
-            {chartData.map((bar, index) => (
-              <div
-                key={index}
-                className={`${bar.color} w-full rounded-t transition-all hover:opacity-80`}
-                style={{ height: bar.height }}
-              />
-            ))}
+      <div
+        className={`flex flex-col gap-8 md:flex-row ${
+          isRTL ? "" : "md:flex-row-reverse"
+        }`}
+      >
+        <div className="flex-1 rounded-[28px] bg-white px-4 py-5 shadow-[0_0_0_1px_rgba(226,232,240,1)]">
+          <div className="h-64 md:h-72">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={chartData}
+                barCategoryGap={20}
+                margin={{ top: 10, right: 10, left: 10, bottom: 0 }}
+              >
+                <CartesianGrid
+                  strokeDasharray="3 3"
+                  vertical={false}
+                  stroke="#E5E7EB"
+                />
+                <XAxis dataKey="name" hide />
+                <YAxis
+                  domain={[0, 100]}
+                  tickFormatter={(v) => `${v} %`}
+                  tick={{ fontSize: 11, fill: "#6B7280" }}
+                />
+                <Tooltip
+                  cursor={{ fill: "rgba(243,244,246,0.8)" }}
+                  formatter={(value: number | undefined) => [`${value ?? 0} %`, ""]}
+                />
+                <Bar dataKey="value" radius={[999, 999, 0, 0]}>
+                  {chartData.map((_, index) => (
+                    <Cell key={index} fill={barColors[index % barColors.length]} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
           </div>
         </div>
 

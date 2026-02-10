@@ -22,7 +22,7 @@ export function CommentsSection({
   return (
     <div className="rounded-2xl bg-white p-6 shadow-sm">
       <h3
-        className={`mb-4 text-lg font-bold text-purple-600 ${
+        className={`mb-4 text-lg font-bold text-[#71144B] ${
           isRTL ? "text-right" : "text-left"
         }`}
       >

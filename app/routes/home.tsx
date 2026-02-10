@@ -2,6 +2,7 @@ import { Sidebar } from "~/components/layout/sidebar";
 import { Navar } from "~/components/layout/navbar";
 import { StatCard, DateRangeFilters, StatisticsChart } from "~/components/home";
 import { getLocale, getTranslations } from "~/lib/translation";
+import { useSidebar } from "~/lib/sidebar-context";
 import type { Route } from "./+types/home";
 
 export function meta({}: Route.MetaArgs) {
@@ -15,6 +16,15 @@ export default function Home() {
   const locale = getLocale();
   const t = getTranslations(locale);
   const isRTL = locale === "ar";
+  const { isOpen } = useSidebar();
+
+  const sidebarOffsetClass = isRTL
+    ? isOpen
+      ? "md:mr-64"
+      : "md:mr-0"
+    : isOpen
+      ? "md:ml-64"
+      : "md:ml-0";
 
   const chartLegendItems = [
     { label: t.home.chart.purchase, color: "bg-teal-400" },
@@ -30,12 +40,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navar />
-      
-      <div className="flex flex-col md:flex-row">
-        <Sidebar />
-        
-        <main className="flex-1 p-4 md:p-6">
-          {/* Date Filters */}
+      <Sidebar />
+
+      <main
+        className={`p-4 md:p-6 transition-all duration-300 ${sidebarOffsetClass}`}
+      >
           <div className={`mb-6 flex flex-col gap-3 md:flex-row ${isRTL ? "md:justify-start" : "md:justify-end"}`}>
             <DateRangeFilters
               fromDateLabel={t.home.fromDate}
@@ -44,7 +53,6 @@ export default function Home() {
             />
           </div>
 
-          {/* Stats Cards Grid */}
           <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <StatCard
               title={t.home.totalSubmittedForms}
@@ -72,14 +80,12 @@ export default function Home() {
             />
           </div>
 
-          {/* Statistics Chart */}
           <StatisticsChart
             title={t.home.submittedFormsStatistics}
             legendItems={chartLegendItems}
             isRTL={isRTL}
           />
         </main>
-      </div>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { FileText, Files, Home, LayoutDashboard, UserPlus, Users, X } from "lucide-react";
+import { FileText, Files, Home, LayoutDashboard, UserPlus, Users } from "lucide-react";
 import { getLocale, getTranslations } from "~/lib/translation";
 import { useSidebar } from "~/lib/sidebar-context";
 
@@ -8,7 +8,7 @@ export function Sidebar() {
   const locale = getLocale();
   const t = getTranslations(locale);
   const isRTL = locale === "ar";
-  const { isOpen, close } = useSidebar();
+  const { isOpen } = useSidebar();
 
   const items = [
     { key: "home", label: t.sidebar.home, icon: Home, href: "/" },
@@ -21,33 +21,15 @@ export function Sidebar() {
 
   return (
     <>
-      {/* Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/50"
-          onClick={close}
-        />
-      )}
-
-      {/* Sidebar */}
       <aside
         className={`
-          fixed top-16 z-50 h-[calc(100vh-4rem)] w-full max-w-[16rem] bg-white py-4 shadow-xl
+          fixed top-16 z-40 h-[calc(100vh-4rem)] w-64 bg-white py-4 shadow-xl
+          border-gray-100
           transition-transform duration-300 ease-in-out
           ${isOpen ? "translate-x-0" : isRTL ? "translate-x-full" : "-translate-x-full"}
-          ${isRTL ? "right-0" : "left-0"}
+          ${isRTL ? "right-0 border-l" : "left-0 border-r"}
         `}
       >
-        {/* Close Button */}
-        <button
-          onClick={close}
-          className={`mb-4 flex items-center justify-center rounded-lg p-2 text-gray-600 transition-colors hover:bg-gray-100 ${
-            isRTL ? "mr-auto ml-3" : "ml-auto mr-3"
-          }`}
-        >
-          <X size={24} />
-        </button>
-
         <nav className="flex flex-col gap-2 px-3 text-sm font-semibold text-gray-600">
           {items.map((item) => {
             const isActive = pathname === item.href;

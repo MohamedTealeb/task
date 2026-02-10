@@ -14,13 +14,11 @@ export function getLocale(): Locale {
     return "en";
   }
 
-  // Check localStorage first
   const savedLocale = localStorage.getItem("locale");
   if (savedLocale === "ar" || savedLocale === "en") {
     return savedLocale;
   }
 
-  // Fall back to document/navigator language
   const htmlLang = document.documentElement.lang?.toLowerCase() || "";
   const navLang = navigator.language?.toLowerCase() || "";
   const lang = htmlLang || navLang || "en";

@@ -30,12 +30,10 @@ export function EmployeeTableRow({
 }: EmployeeTableRowProps) {
   return (
     <tr className="border-b border-gray-100 transition-colors hover:bg-gray-50">
-      {/* Name */}
       <td className="px-4 py-4">
         <EmployeeAvatar name={employee.name} imageSeed={employee.avatar} />
       </td>
 
-      {/* Direct Manager */}
       <td className="px-4 py-4">
         <EmployeeAvatar
           name={employee.directManager}
@@ -43,36 +41,30 @@ export function EmployeeTableRow({
         />
       </td>
 
-      {/* Position */}
       <td className="px-4 py-4">
         <span className="text-sm text-gray-600">{employee.position}</span>
       </td>
 
-      {/* Submitted Requests */}
       <td className="px-4 py-4 text-center">
         <span className="text-sm font-semibold text-gray-700">
           {employee.submittedRequests}
         </span>
       </td>
 
-      {/* Phone Number */}
       <td className="px-4 py-4">
         <span className="text-sm text-gray-600">{employee.phoneNumber}</span>
       </td>
 
-      {/* Email */}
       <td className="px-4 py-4">
         <span className="text-sm text-gray-600">{employee.email}</span>
       </td>
 
-      {/* Account Status Toggle */}
       <td className="px-4 py-4">
         <div className="flex justify-center">
           <StatusToggle initialStatus={employee.isActive} />
         </div>
       </td>
 
-      {/* Operations */}
       <td className="px-4 py-4">
         <div className="flex items-center gap-2">
           <button

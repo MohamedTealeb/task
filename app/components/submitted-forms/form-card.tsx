@@ -14,39 +14,47 @@ interface FormCardProps {
   isRTL: boolean;
 }
 
-const statusColors = {
-  approved: "bg-green-100 text-green-600",
-  rejected: "bg-orange-100 text-orange-600",
-  pending: "bg-orange-100 text-orange-600",
+const statusTextColors: Record<FormSubmission["status"], string> = {
+  approved: "text-emerald-500",
+  rejected: "text-rose-500",
+  pending: "text-amber-500",
 };
 
 export function FormCard({ form, isRTL }: FormCardProps) {
   return (
     <Link
       to={`/form/${form.id}`}
-      className={`block rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md hover:border-purple-300 ${
+      className={`block rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_10px_24px_rgba(15,23,42,0.08)] transition-all hover:shadow-lg hover:border-purple-300 ${
         isRTL ? "text-right" : "text-left"
       }`}
     >
-      {/* Date */}
-      <div className="mb-4 text-sm font-semibold text-gray-600">
-        {form.date}
-      </div>
-
-      {/* Title */}
-      <h3 className="mb-3 text-lg font-bold text-gray-800">{form.title}</h3>
-
-      {/* Status Badge */}
       <div
-        className={`mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-semibold ${
-          statusColors[form.status]
+        className={`mb-2 flex items-start justify-between ${
+          isRTL ? "flex-row-reverse" : ""
         }`}
       >
-        {form.statusLabel}
+        <div className="text-xs font-semibold text-gray-500">{form.date}</div>
+        <h3 className="text-sm font-bold text-gray-800">{form.title}</h3>
       </div>
 
-      {/* Department */}
-      <div className="text-sm text-gray-500">{form.department}</div>
+      <div className="mb-1 text-[11px]">
+        <span className="text-gray-600">حالة الطلب </span>
+        <span className={statusTextColors[form.status]}>
+          {form.statusLabel.replace("حالة الطلب -", "").trim()} :
+        </span>
+      </div>
+
+      <div
+        className={`mt-2 flex items-center gap-4 text-[11px] text-gray-500 ${
+          isRTL ? "flex-row-reverse" : ""
+        }`}
+      >
+        <span>مدير العام</span>
+        <span>مدير الإدارة</span>
+        <span className="font-semibold text-emerald-500">
+          {form.department}
+        </span>
+      </div>
     </Link>
   );
 }

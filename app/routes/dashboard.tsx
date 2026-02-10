@@ -7,6 +7,7 @@ import {
   LineChart,
 } from "~/components/dashboard";
 import { getLocale, getTranslations } from "~/lib/translation";
+import { useSidebar } from "~/lib/sidebar-context";
 import { ChevronDown, Search } from "lucide-react";
 import type { Route } from "./+types/dashboard";
 
@@ -32,6 +33,7 @@ export default function Dashboard() {
   const locale = getLocale();
   const t = getTranslations(locale);
   const isRTL = locale === "ar";
+  const { isOpen } = useSidebar();
 
   const statisticsData = [
     {
@@ -61,16 +63,24 @@ export default function Dashboard() {
     t.dashboard.days.sun,
   ];
 
+  const sidebarOffsetClass = isRTL
+    ? isOpen
+      ? "md:mr-64"
+      : "md:mr-0"
+    : isOpen
+      ? "md:ml-64"
+      : "md:ml-0";
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navar />
 
-      <div className="flex">
-        <Sidebar />
+      <Sidebar />
 
-        <main className="flex-1 p-6">
+      <main
+        className={`p-6 transition-all duration-300 ${sidebarOffsetClass}`}
+      >
           <div className="mx-auto max-w-7xl">
-            {/* Page Title */}
             <h1
               className={`mb-6 text-3xl font-bold text-gray-800 ${
                 isRTL ? "text-right" : "text-left"
@@ -79,14 +89,8 @@ export default function Dashboard() {
               {t.dashboard.pageTitle}
             </h1>
 
-            {/* Filters */}
-            <div
-              className={`mb-6 flex items-center gap-4 ${
-                isRTL ? "flex-row-reverse" : ""
-              }`}
-            >
-              {/* Search Input */}
-              <div className="relative flex-1">
+            <div className="mx-auto mb-6 grid w-full max-w-[920px] grid-cols-1 items-center gap-4 md:grid-cols-[320px_260px_auto]">
+              <div className="relative w-full">
                 <input
                   type="text"
                   placeholder={t.dashboard.searchContacts}
@@ -95,15 +99,14 @@ export default function Dashboard() {
                   }`}
                 />
                 <Search
-                  className={`absolute top-1/2 -translate-y-1/2 text-gray-400 ${
+                  className={`absolute top-1/2 -translate-y-1/2 text-[#B00A70]  ${
                     isRTL ? "right-4" : "left-4"
                   }`}
                   size={18}
                 />
               </div>
 
-              {/* Filter Dropdown */}
-              <div className="relative min-w-[200px]">
+              <div className="relative w-full md:w-[260px]">
                 <select
                   className={`w-full appearance-none rounded-full border border-gray-300 bg-white px-6 py-3 text-sm transition-all focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-100 ${
                     isRTL ? "pr-12 text-right" : "pl-6 text-left"
@@ -112,23 +115,20 @@ export default function Dashboard() {
                   <option>{t.dashboard.filterByDay}</option>
                 </select>
                 <ChevronDown
-                  className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-gray-400 ${
+                  className={`pointer-events-non text-[#B00A70] absolute top-1/2 -translate-y-1/2 ${
                     isRTL ? "left-4" : "right-4"
                   }`}
                   size={18}
                 />
               </div>
 
-              {/* Search Button */}
-              <button className="shrink-0 rounded-full bg-linear-to-r from-pink-600 to-purple-600 px-12 py-3 font-bold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110">
+              <button className="w-full md:w-auto rounded-full bg-[#71144B] px-10 py-3 font-bold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110">
                 {t.dashboard.search}
               </button>
             </div>
 
             <div className="flex flex-col gap-6 lg:flex-row">
-              {/* Main Content */}
               <div className="flex-1">
-                {/* Stats Cards Grid */}
                 <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   <StatCardIcon
                     title={t.dashboard.allClients}
@@ -139,7 +139,7 @@ export default function Dashboard() {
                   <StatCardIcon
                     title={t.dashboard.onlineDeliverers}
                     value="200"
-                    subtitle={`${t.dashboard.allDeliverers} 500`}
+                  
                     color="purple"
                     icon="deliverers"
                   />
@@ -169,16 +169,13 @@ export default function Dashboard() {
                   />
                 </div>
 
-                {/* Bottom Section */}
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-                  {/* Statistics Panel */}
                   <StatisticsPanel
                     title={t.dashboard.statistics}
                     stats={statisticsData}
                     isRTL={isRTL}
                   />
 
-                  {/* Line Chart */}
                   <LineChart
                     title={t.dashboard.orders}
                     days={weekDays}
@@ -187,7 +184,6 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              {/* Right Sidebar - Cities */}
               <div className="w-full space-y-4 lg:w-80">
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1">
                   {citiesData.map((city, index) => (
@@ -204,7 +200,6 @@ export default function Dashboard() {
             </div>
           </div>
         </main>
-      </div>
     </div>
   );
 }
