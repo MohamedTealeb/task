@@ -150,29 +150,36 @@ export default function Employees() {
       <Sidebar />
 
       <main
-        className={`p-6 transition-all duration-300 ${sidebarOffsetClass}`}
+        className={`px-3 py-4 md:p-6 transition-all duration-300 ${sidebarOffsetClass}`}
       >
-          <div className="mx-auto max-w-7xl">
-            <div
-              className={`mb-6 flex items-center justify-between ${
-                isRTL ? "flex-row-reverse" : ""
-              }`}
-            >
-           
-            </div>
+        <div className="mx-auto max-w-7xl">
+          <div
+            className={`mb-4 flex items-center justify-between ${
+              isRTL ? "flex-row-reverse" : ""
+            }`}
+          >
+            {/* ممكن نضيف أزرار إضافية هنا لاحقًا */}
+          </div>
 
-            <EmployeesFilters
-              searchPlaceholder={t.employees.search}
-              statusLabel={t.employees.accountStatus}
-              isRTL={isRTL}
-            />
+          <EmployeesFilters
+            searchPlaceholder={t.employees.search}
+            statusLabel={t.employees.accountStatus}
+            isRTL={isRTL}
+          />
 
-            <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
-            <h1 className="text-3xl font-bold text-gray-800">
-                {t.employees.pageTitle} ({dummyEmployees.length})
-              </h1>
-              <div className="overflow-x-auto">
-                <table className="w-full">
+          {/* Title */}
+          <h1
+            className={`mb-3 text-2xl font-bold text-gray-800 ${
+              isRTL ? "text-left md:text-right" : "text-right"
+            }`}
+          >
+            {t.employees.pageTitle} ({dummyEmployees.length})
+          </h1>
+
+          {/* Table Container */}
+          <div className="overflow-x-auto rounded-2xl bg-white shadow-sm">
+            <div className="min-w-[720px]">
+              <table className="w-full">
                   <thead className="bg-gray-50">
                     <tr>
                       <th
@@ -235,7 +242,10 @@ export default function Employees() {
                 </table>
               </div>
 
-              <Pagination currentPage={1} totalPages={3} />
+              {/* Pagination */}
+              <div className="border-t border-gray-100 px-4 py-3">
+                <Pagination currentPage={1} totalPages={3} />
+              </div>
             </div>
           </div>
         </main>
