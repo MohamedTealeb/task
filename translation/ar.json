@@ -1,0 +1,133 @@
+{
+  "navbar": {
+    "logo": "Logo",
+    "admin": "Admin",
+    "menu": "القائمة",
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "about": "من نحن",
+    "signIn": "تسجيل الدخول",
+    "signUp": "إنشاء حساب"
+  },
+  "sidebar": {
+    "home": "الصفحة الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "addEmployee": "إضافة موظف جديد",
+    "employees": "الموظفين",
+    "allForms": "كل النماذج",
+    "submittedForms": "النماذج المقدمة"
+  },
+  "home": {
+    "fromDate": "من تاريخ",
+    "toDate": "إلى تاريخ",
+    "totalSubmittedForms": "إجمالي النماذج المقدمة",
+    "formsUnderReview": "إجمالي النماذج تحت المراجعة",
+    "approvedForms": "إجمالي النماذج الموافق عليها",
+    "rejectedForms": "إجمالي النماذج المرفوضة",
+    "monthAbbr": "شهراً",
+    "submittedFormsStatistics": "إحصائيات النماذج المقدمة",
+    "chart": {
+      "purchase": "النماذج شراء",
+      "approved": "النماذج منتهية",
+      "missingFields": "النماذج ناقص فيها",
+      "underReview": "النماذج اجراءة",
+      "purchase2": "النماذج شراء",
+      "approved2": "النماذج منتهية",
+      "missingFields2": "النماذج ناقص فيها",
+      "underReview2": "النماذج اجراءة"
+    }
+  },
+  "addEmployee": {
+    "pageTitle": "إضافة موظف جديد",
+    "addPhoto": "اضف صورة",
+    "employeeName": "اسم الموظف",
+    "civilId": "الرقم المدني",
+    "position": "الوظيفة",
+    "serialNumber": "العدد التسلسلي",
+    "phoneNumber": "رقم الهاتف",
+    "nationality": "الجنسية",
+    "address": "العنوان",
+    "email": "البريد الإلكتروني",
+    "motorStatus": "حالة الموتر",
+    "motorServiceDate": "تاريخ خدمة الموتر",
+    "allowAppAccess": "السماح للموظف باستخدام التطبيق",
+    "save": "حفظ"
+  },
+  "employees": {
+    "pageTitle": "الموظفين",
+    "employeesCount": "الموظفين",
+    "search": "بحث",
+    "accountStatus": "حالة الحساب",
+    "table": {
+      "name": "الأسم",
+      "directManager": "المدير المباشر",
+      "position": "الوظيفة",
+      "submittedRequests": "الطلبات المقدمة",
+      "phoneNumber": "رقم التليفون",
+      "email": "البريد الإلكتروني",
+      "accountStatus": "حالة الحساب",
+      "operations": "العمليات"
+    },
+    "activate": "تفعيل",
+    "deactivate": "تعطيل",
+    "allStatuses": "جميع الحالات",
+    "active": "نشط",
+    "inactive": "غير نشط"
+  },
+  "submittedForms": {
+    "pageTitle": "الصفحة الرئيسية",
+    "search": "بحث",
+    "motorStatus": "حالة الموتر",
+    "purchaseRequest": "طلب شراء",
+    "maintenanceRequest": "طلب صيانة",
+    "status": {
+      "approved": "موافق",
+      "rejected": "مرفوض",
+      "pending": "مراجعة",
+      "label": "حالة الطلب"
+    },
+    "manager": "مدير إدارة",
+    "financial": "مدير مالم",
+    "business": "مدير أعمال"
+  },
+  "formDetails": {
+    "pageTitle": "مراجعة النموذج",
+    "applicantName": "اسم الطالب",
+    "position": "الوظيفة",
+    "requestNumber": "رقم الطلب",
+    "storeName": "اسم الزاغرة",
+    "winnerName": "اسم الفائز",
+    "requestDuration": "مدى شهرة الطلب",
+    "attachments": "مرفقات",
+    "comments": "التعليقات",
+    "addRequest": "إضافة الطلب",
+    "employee": "موظف",
+    "warehouse": "المستودع",
+    "storageDuration": "مدة تخزين الطلب",
+    "departmentManager": "مدير القسم"
+  },
+  "dashboard": {
+    "pageTitle": "لوحة التحكم",
+    "searchContacts": "ابحث عن جهات الاتصال...",
+    "filterByDay": "تصفية حسب اليوم",
+    "search": "بحث",
+    "allClients": "جميع العملاء",
+    "onlineDeliverers": "المندوبين المتصلين",
+    "allDeliverers": "جميع المندوبين",
+    "allAWD": "جميع الطلبات",
+    "doneAWD": "الطلبات المكتملة",
+    "pendingAWD": "الطلبات المعلقة",
+    "returnsAWD": "الطلبات المرتجعة",
+    "statistics": "الإحصائيات",
+    "orders": "الطلبات",
+    "days": {
+      "mon": "الاثنين",
+      "tue": "الثلاثاء",
+      "wed": "الأربعاء",
+      "thu": "الخميس",
+      "fri": "الجمعة",
+      "sat": "السبت",
+      "sun": "الأحد"
+    }
+  }
+}

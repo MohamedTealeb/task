@@ -1,0 +1,133 @@
+{
+  "navbar": {
+    "logo": "Logo",
+    "admin": "Admin",
+    "menu": "Menu",
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "signIn": "Sign in",
+    "signUp": "Sign up"
+  },
+  "sidebar": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "addEmployee": "Add New Employee",
+    "employees": "Employees",
+    "allForms": "All Forms",
+    "submittedForms": "Submitted Forms"
+  },
+  "home": {
+    "fromDate": "From Date",
+    "toDate": "To Date",
+    "totalSubmittedForms": "Total Submitted Forms",
+    "formsUnderReview": "Total Forms Under Review",
+    "approvedForms": "Total Approved Forms",
+    "rejectedForms": "Total Rejected Forms",
+    "monthAbbr": "months",
+    "submittedFormsStatistics": "Submitted Forms Statistics",
+    "chart": {
+      "purchase": "Purchase Forms",
+      "approved": "Approved Forms",
+      "missingFields": "Missing Fields Forms",
+      "underReview": "Under Review Forms",
+      "purchase2": "Purchase Forms",
+      "approved2": "Approved Forms",
+      "missingFields2": "Missing Fields Forms",
+      "underReview2": "Under Review Forms"
+    }
+  },
+  "addEmployee": {
+    "pageTitle": "Add New Employee",
+    "addPhoto": "Add Photo",
+    "employeeName": "Employee Name",
+    "civilId": "Civil ID",
+    "position": "Position",
+    "serialNumber": "Serial Number",
+    "phoneNumber": "Phone Number",
+    "nationality": "Nationality",
+    "address": "Address",
+    "email": "Email",
+    "motorStatus": "Motor Status",
+    "motorServiceDate": "Motor Service Date",
+    "allowAppAccess": "Allow Employee to Use Application",
+    "save": "Save"
+  },
+  "employees": {
+    "pageTitle": "Employees",
+    "employeesCount": "Employees",
+    "search": "Search",
+    "accountStatus": "Account Status",
+    "table": {
+      "name": "Name",
+      "directManager": "Direct Manager",
+      "position": "Position",
+      "submittedRequests": "Submitted Requests",
+      "phoneNumber": "Phone Number",
+      "email": "Email",
+      "accountStatus": "Account Status",
+      "operations": "Operations"
+    },
+    "activate": "Activate",
+    "deactivate": "Deactivate",
+    "allStatuses": "All Statuses",
+    "active": "Active",
+    "inactive": "Inactive"
+  },
+  "submittedForms": {
+    "pageTitle": "Home Page",
+    "search": "Search",
+    "motorStatus": "Motor Status",
+    "purchaseRequest": "Purchase Request",
+    "maintenanceRequest": "Maintenance Request",
+    "status": {
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "pending": "Under Review",
+      "label": "Request Status"
+    },
+    "manager": "Department Manager",
+    "financial": "Financial Manager",
+    "business": "Business Manager"
+  },
+  "formDetails": {
+    "pageTitle": "Form Review",
+    "applicantName": "Applicant Name",
+    "position": "Position",
+    "requestNumber": "Request Number",
+    "storeName": "Store Name",
+    "winnerName": "Winner Name",
+    "requestDuration": "Request Duration",
+    "attachments": "Attachments",
+    "comments": "Comments",
+    "addRequest": "Add Request",
+    "employee": "Employee",
+    "warehouse": "Warehouse",
+    "storageDuration": "Storage Duration",
+    "departmentManager": "Department Manager"
+  },
+  "dashboard": {
+    "pageTitle": "My Dashboard",
+    "searchContacts": "Search for contacts...",
+    "filterByDay": "Filter by Day",
+    "search": "Search",
+    "allClients": "All Clients",
+    "onlineDeliverers": "Online Deliverers",
+    "allDeliverers": "All Deliverers",
+    "allAWD": "All AWD",
+    "doneAWD": "Done AWD",
+    "pendingAWD": "Pending AWD",
+    "returnsAWD": "Returns AWD",
+    "statistics": "Statistics",
+    "orders": "Orders",
+    "days": {
+      "mon": "Mon",
+      "tue": "Tue",
+      "wed": "Wed",
+      "thu": "Thu",
+      "fri": "Fri",
+      "sat": "Sat",
+      "sun": "Sun"
+    }
+  }
+}
