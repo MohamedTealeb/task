@@ -13,16 +13,16 @@ export function DateRangeFilters({
 }: DateRangeFiltersProps) {
   return (
     <div
-      className={`flex items-center gap-4 ${isRTL ? "flex-row-reverse" : ""}`}
+      className={`flex flex-col sm:flex-row sm:items-center gap-3 ${isRTL ? "sm:flex-row-reverse" : ""}`}
     >
-      <div className="relative">
+      <div className="relative w-full sm:w-auto">
         <select
           className={`
-            appearance-none w-full min-w-[200px]  rounded-full border border-gray-300 bg-white 
-            px-6 py-3 pr-10 text-sm text-gray-600 
+            appearance-none w-full sm:min-w-[200px] rounded-full border border-gray-300 bg-white 
+            px-4 py-2.5 sm:px-6 sm:py-3 text-sm text-gray-600 
             shadow-sm transition-all hover:border-gray-400 
             focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200
-            ${isRTL ? "text-right" : "text-left"}
+            ${isRTL ? "pr-10 text-right" : "pr-10 text-left"}
           `}
         >
           <option>{fromDateLabel}</option>
@@ -35,14 +35,14 @@ export function DateRangeFilters({
         />
       </div>
 
-      <div className="relative">
+      <div className="relative w-full sm:w-auto">
         <select
           className={`
-            appearance-none w-full min-w-[200px] rounded-full border border-gray-300 bg-white 
-            px-6 py-3 pr-10 text-sm text-gray-600 
+            appearance-none w-full sm:min-w-[200px] rounded-full border border-gray-300 bg-white 
+            px-4 py-2.5 sm:px-6 sm:py-3 text-sm text-gray-600 
             shadow-sm transition-all hover:border-gray-400 
             focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200
-            ${isRTL ? "text-right" : "text-left"}
+            ${isRTL ? "pr-10 text-right" : "pr-10 text-left"}
           `}
         >
           <option>{toDateLabel}</option>
