@@ -39,24 +39,24 @@ export default function AddEmployee() {
       <Sidebar />
 
       <main
-        className={`p-6 transition-all duration-300 ${sidebarOffsetClass}`}
+        className={`px-3 py-4 md:p-6 transition-all duration-300 ${sidebarOffsetClass}`}
       >
           <div className="mx-auto max-w-5xl">
             <h1
-              className={`mb-8 text-2xl font-bold text-gray-800 ${
+              className={`mb-6 text-xl font-bold text-gray-800 md:mb-8 md:text-2xl ${
                 isRTL ? "text-right" : "text-left"
               }`}
             >
               {t.addEmployee.pageTitle}
             </h1>
 
-            <div className="rounded-3xl bg-white p-8 shadow-sm">
+            <div className="rounded-3xl bg-white p-4 shadow-sm md:p-8">
               <div
-                className={`flex gap-8 ${
-                  isRTL ? "flex-row-reverse" : "flex-row"
+                className={`flex flex-col gap-8 md:flex-row ${
+                  isRTL ? "md:flex-row-reverse" : ""
                 }`}
               >
-                <div className="shrink-0">
+                <div className="shrink-0 self-center md:self-start">
                   <ImageUploader label={t.addEmployee.addPhoto} />
                 </div>
 
@@ -96,21 +96,20 @@ export default function AddEmployee() {
 
                     <FormInput
                       label={t.addEmployee.motorStatus}
+                      type="password"
                       isRTL={isRTL}
                     />
                     <FormInput
                       label={t.addEmployee.motorServiceDate}
-                      type=""
+                      type="password"
                       isRTL={isRTL}
                     />
                   </div>
 
-                  <div
-                    className={`mt-6 `}
-                  >
+                  <div className="mt-6">
                     <FormCheckbox
                       label={t.addEmployee.allowAppAccess}
-                     
+                    
                     />
                   </div>
                 </div>
@@ -119,7 +118,7 @@ export default function AddEmployee() {
               <div className="mt-8 flex justify-center">
                 <button
                   type="submit"
-                  className="rounded-full bg-[#AE0A6F] px-20 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110"
+                  className="rounded-full bg-[#AE0A6F] px-10 py-3 font-semibold text-white shadow-lg transition-all hover:shadow-xl hover:brightness-110 md:px-20"
                 >
                   {t.addEmployee.save}
                 </button>

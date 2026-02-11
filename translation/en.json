@@ -48,7 +48,7 @@
     "nationality": "Nationality",
     "address": "Address",
     "email": "Email",
-    "motorStatus": "Motor Status",
+    "motorStatus": "Model Status",
     "motorServiceDate": "Motor Service Date",
     "allowAppAccess": "Allow Employee to Use Application",
     "save": "Save"
@@ -77,7 +77,7 @@
   "submittedForms": {
     "pageTitle": "Home Page",
     "search": "Search",
-    "motorStatus": "Motor Status",
+    "motorStatus": "Model Status",
     "purchaseRequest": "Purchase Request",
     "maintenanceRequest": "Maintenance Request",
     "status": {

@@ -12,6 +12,9 @@ export interface FormSubmission {
 interface FormCardProps {
   form: FormSubmission;
   isRTL: boolean;
+  requestStatusLabel: string;
+  generalManagerLabel: string;
+  departmentManagerLabel: string;
 }
 
 const statusTextColors: Record<FormSubmission["status"], string> = {
@@ -20,7 +23,13 @@ const statusTextColors: Record<FormSubmission["status"], string> = {
   pending: "text-amber-500",
 };
 
-export function FormCard({ form, isRTL }: FormCardProps) {
+export function FormCard({
+  form,
+  isRTL,
+  requestStatusLabel,
+  generalManagerLabel,
+  departmentManagerLabel,
+}: FormCardProps) {
   return (
     <Link
       to={`/form/${form.id}`}
@@ -38,9 +47,9 @@ export function FormCard({ form, isRTL }: FormCardProps) {
       </div>
 
       <div className="mb-1 text-[11px]">
-        <span className="text-gray-600">حالة الطلب </span>
+        <span className="text-gray-600">{requestStatusLabel} </span>
         <span className={statusTextColors[form.status]}>
-          {form.statusLabel.replace("حالة الطلب -", "").trim()} :
+          {form.statusLabel} :
         </span>
       </div>
 
@@ -49,8 +58,8 @@ export function FormCard({ form, isRTL }: FormCardProps) {
           isRTL ? "flex-row-reverse" : ""
         }`}
       >
-        <span>مدير العام</span>
-        <span>مدير الإدارة</span>
+        <span>{generalManagerLabel}</span>
+        <span>{departmentManagerLabel}</span>
         <span className="font-semibold text-emerald-500">
           {form.department}
         </span>

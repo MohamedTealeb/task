@@ -13,8 +13,8 @@ export function EmployeesFilters({
 }: EmployeesFiltersProps) {
   return (
     <div
-      className={`mb-6 flex items-center gap-4 ${
-        isRTL ? "flex-row-reverse" : ""
+      className={`mb-6 flex items-center gap-3 ${
+        isRTL ? "flex-row-reverse" : "flex-row-reverse"
       }`}
     >
       <div className="relative flex-1">
@@ -22,8 +22,8 @@ export function EmployeesFilters({
           type="text"
           placeholder={searchPlaceholder}
           className={`
-             rounded-full border border-[#B00A70] bg-white 
-            px-6 py-3 text-sm text-gray-700 
+            h-12  rounded-full border-2 border-[#B00A70] bg-white 
+            px-6 text-sm text-gray-700 placeholder:text-gray-400
             transition-all 
             focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-100
             ${isRTL ? "pr-12 text-right" : "pl-12 text-left"}
@@ -40,8 +40,8 @@ export function EmployeesFilters({
       <div className="relative min-w-[200px]">
         <select
           className={`
-            w-full appearance-none rounded-full border border-[#B00A70] bg-white 
-            px-6 py-3 text-sm text-gray-600 
+            h-12 w-full appearance-none rounded-full border-2 border-[#B00A70] bg-white 
+            px-6 text-sm text-gray-600 placeholder:text-gray-400
             transition-all 
             focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-100
             ${isRTL ? "pr-12 text-right" : "pl-6 text-left"}
