@@ -13,11 +13,11 @@ export function EmployeesFilters({
 }: EmployeesFiltersProps) {
   return (
     <div
-      className={`mb-6 flex items-center gap-3 ${
-        isRTL ? "flex-row-reverse" : ""
+      className={`mb-6 flex flex-col sm:flex-row sm:items-center gap-3 ${
+        isRTL ? "sm:flex-row-reverse" : ""
       }`}
     >
-      <div className="relative flex-1">
+      <div className="relative w-full sm:flex-1">
         <input
           type="text"
           placeholder={searchPlaceholder}
@@ -37,7 +37,7 @@ export function EmployeesFilters({
         />
       </div>
 
-      <div className="relative min-w-[200px]">
+      <div className="relative w-full sm:w-auto sm:min-w-[200px]">
         <select
           className={`
             h-10 sm:h-12 w-full appearance-none rounded-full border-2 border-[#B00A70] bg-white 
