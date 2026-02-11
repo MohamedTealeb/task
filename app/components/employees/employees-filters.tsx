@@ -14,7 +14,7 @@ export function EmployeesFilters({
   return (
     <div
       className={`mb-6 flex items-center gap-3 ${
-        isRTL ? "flex-row-reverse" : "flex-row-reverse"
+        isRTL ? "flex-row-reverse" : ""
       }`}
     >
       <div className="relative flex-1">
