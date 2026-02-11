@@ -22,38 +22,38 @@ export function EmployeesFilters({
           type="text"
           placeholder={searchPlaceholder}
           className={`
-            h-12  rounded-full border-2 border-[#B00A70] bg-white 
-            px-6 text-sm text-gray-700 placeholder:text-gray-400
+            h-10 sm:h-12 rounded-full border-2 border-[#B00A70] bg-white 
+            px-4 sm:px-6 text-sm text-gray-700 placeholder:text-gray-400
             transition-all 
             focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-100
-            ${isRTL ? "pr-12 text-right" : "pl-12 text-left"}
+            ${isRTL ? "pr-10 sm:pr-12 text-right" : "pl-10 sm:pl-12 text-left"}
           `}
         />
         <Search
           className={`absolute top-1/2 -translate-y-1/2 text-[#B00A70] ${
-            isRTL ? "right-4" : "left-4"
+            isRTL ? "right-3 sm:right-4" : "left-3 sm:left-4"
           }`}
-          size={18}
+          size={16}
         />
       </div>
 
       <div className="relative min-w-[200px]">
         <select
           className={`
-            h-12 w-full appearance-none rounded-full border-2 border-[#B00A70] bg-white 
-            px-6 text-sm text-gray-600 placeholder:text-gray-400
+            h-10 sm:h-12 w-full appearance-none rounded-full border-2 border-[#B00A70] bg-white 
+            px-4 sm:px-6 text-sm text-gray-600 placeholder:text-gray-400
             transition-all 
             focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-100
-            ${isRTL ? "pr-12 text-right" : "pl-6 text-left"}
+            ${isRTL ? "pr-10 sm:pr-12 text-right" : "pl-4 sm:pl-6 text-left"}
           `}
         >
           <option>{statusLabel}</option>
         </select>
         <ChevronDown
           className={`pointer-events-none absolute top-1/2 -translate-y-1/2 text-[#B00A70] ${
-            isRTL ? "left-4" : "right-4"
+            isRTL ? "left-3 sm:left-4" : "right-3 sm:right-4"
           }`}
-          size={18}
+          size={16}
         />
       </div>
     </div>
